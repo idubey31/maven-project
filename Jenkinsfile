@@ -27,13 +27,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "scp -i D:\\Users\\idubey\\Desktop\\DevOps\\Jenkins\\DevOpsKey.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat/webapps"
+                        sh "scp -i D://Users//idubey//Desktop//DevOps//Jenkins//DevOpsKey.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat/webapps"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "scp -i D:\\Users\\idubey\\DevOps\\Jenkins\\DevOpsKey.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat/webapps"
+                        sh "scp -i D://Users//idubey//Desktop//DevOps//Jenkins//DevOpsKey.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat/webapps"
                     }
                 }
             }
