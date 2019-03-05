@@ -27,6 +27,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
+                        sh "pwd"
                         sh "scp -i /DevOpsKey.pem /var/lib/jenkins/workspace/AutomatedPipeline/webapp/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
                     }
                 }
