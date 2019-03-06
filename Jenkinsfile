@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     parameters {
-         string(name: 'tomcat_dev', defaultValue: '3.83.138.129', description: 'Staging Server')
-         string(name: 'tomcat_prod', defaultValue: '54.158.63.153', description: 'Production Server')
+         string(name: 'Tomcat-stage', defaultValue: '18.206.118.119', description: 'Staging Server')
+         string(name: 'Tomcat-prod', defaultValue: '54.159.202.52', description: 'Production Server')
     }
 
     triggers {
@@ -28,13 +28,13 @@ stages{
                 stage ('Deploy to Staging'){
                     steps {
                         sh "pwd"
-                        sh "scp -i ~/DevOpsKey.pem /var/lib/jenkins/workspace/AutomatedPipeline/webapp/target/*.war ec2-user@172.31.89.10:/var/lib/tomcat7/webapps"
+                        sh "scp -i ~/DevOpsKey.pem /var/lib/jenkins/workspace/AutomatedPipeline/webapp/target/*.war ec2-user@18.206.118.119:/var/lib/tomcat7/webapps"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "scp -i ~/DevOpsKey.pem /var/lib/jenkins/workspace/AutomatedPipeline/webapp/target/*.war ec2-user@172.31.95.229:/var/lib/tomcat7/webapps"
+                        sh "scp -i ~/DevOpsKey.pem /var/lib/jenkins/workspace/AutomatedPipeline/webapp/target/*.war ec2-user@54.159.202.52:/var/lib/tomcat7/webapps"
                     }
                 }
             }
