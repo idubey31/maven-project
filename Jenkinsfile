@@ -28,13 +28,13 @@ stages{
                 stage ('Deploy to Staging'){
                     steps {
                         sh "pwd"
-                        sh "scp -i ~/DevOpsKey.pem /var/lib/jenkins/workspace/AutomatedPipeline/webapp/target/*.war ec2-user@18.206.118.119:/var/lib/tomcat7/webapps"
+                        sh "sudo scp -i ~/DevOpsKey.pem /var/lib/jenkins/workspace/AutomatedPipeline/webapp/target/*.war ec2-user@18.206.118.119:/var/lib/tomcat7/webapps"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "scp -i ~/DevOpsKey.pem /var/lib/jenkins/workspace/AutomatedPipeline/webapp/target/*.war ec2-user@54.159.202.52:/var/lib/tomcat7/webapps"
+                        sh "sudo scp -i ~/DevOpsKey.pem /var/lib/jenkins/workspace/AutomatedPipeline/webapp/target/*.war ec2-user@54.159.202.52:/var/lib/tomcat7/webapps"
                     }
                 }
             }
